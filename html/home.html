@@ -30,7 +30,7 @@
     </section>
 
 
-    <section id="aboutme" class="aboutme">
+    <section id="aboutme" class="aboutme-section fade-in">
         <div id="photoaboutme">
             <img src="" alt="photoaboutme">
         </div>
@@ -46,7 +46,7 @@
         <div id="textproducts">
             <h1>Products Photos</h1>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur deserunt impedit quod quaerat nisi voluptates totam, corporis nesciunt beatae consectetur molestias odio, quia excepturi. Odio, maiores dignissimos. Deleniti, officia magni!</p>
-            <button>See more</button>
+            <button class="primary-btn">See more</button>
         </div>
     </section>
     <section id="retrat">
@@ -56,7 +56,7 @@
         <div id="textretrat">
             <h1>Retrats Photos</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, dolore ipsum! Tempora, repudiandae neque accusantium reiciendis debitis inventore! Aperiam dignissimos doloremque, corporis cupiditate autem deleniti exercitationem officiis illum assumenda distinctio!</p>
-            <button>See more</button>
+            <button class="primary-btn">See more</button>
         </div>
     </section>
     <section id="videoproduct">
@@ -67,32 +67,56 @@
             <h1>Video for socials</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem rerum at numquam labore magni, dolores necessitatibus eos recusandae porro, atque tempora! Eos accusantium aut exercitationem quas saepe asperiores, velit recusandae.
             </p>
-            <button>See more</button>
+            <button class="primary-btn">See more</button>
         </div>
     </section>
-    <section id="contact">
+    <section id="contact" class="contact-container">
         <div>
-            <form action="POST">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10" required></textarea>
-                <button>Send</button>
+            <h2>Contact Me</h2>
+            <form action="POST" class="contact-form">
+                <input class="contact-input" type="text" id="name" name="name" required placeholder="Name">
+                <input class="contact-input"  type="email" id="email" name="email" required placeholder="Email">
+                <textarea class="contact-input" name="message" id="message" cols="30" rows="10" required placeholder="Message"></textarea>
+                <button class="primary-btn">Send</button>
             </form>
         </div>
         <div>
-            <h1>Contact</h1>
-            <p>Email:</p>
-            <p>Instagram</p>
-            <p>Tel:</p>
+            <h2>Follow Me</h2>
+            <div class="socials">
+                <img src="/img/instagramicon.png" class="icons" alt=""><a href="https://www.instagram.com/lucaconterno/" target="_blank" class="social-link">Instagram</a>
+                <a href="https://www.facebook.com/lucaconterno/" target="_blank" class="social-link">Facebook</a>
+                <a href="https://www.linkedin.com/in/lucaconterno/" target="_blank" class="social-link">Linkedin</a>
+            </div>
         </div>
     </section>
+
+    <footer>
+        <p>© 2024 <a href="https://www.linkedin.com/in/rafael-burghini/">Powered by Rafael Burghini</a></p>
+    </footer>
+
 
     <script>
         document.getElementById('darkModeToggle').addEventListener('click', function() {
             document.body.classList.toggle('dark');
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll("section");
+        
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+        
+            sections.forEach(section => {
+                section.classList.add("fade-in");
+                observer.observe(section);
+            });
         });
     </script>
 

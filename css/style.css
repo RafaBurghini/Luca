@@ -3,7 +3,7 @@
 :root{
     --primary-color: #f2ce3f;
     --secondary-color: #ecd27a;
-    --accent-color: ##e8e75b;
+    --accent-color: #e8e75b;
     --background-color: #e6e6e6;
     --text-color: #1a1a1a;
     --font: "Poppins", sans-serif;
@@ -133,6 +133,11 @@ body.dark h1, body.dark h2, body.dark h3, body.dark h4 {
 body.dark .dot::before, body.dark .dot::after {
     background-color: #ffffff; /* Change ripple color to white in dark mode */
 }
+
+body.dark .contact-container {
+    border-color: #e6e6e6; /* Change border color to white in dark mode */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.277); /* Change box shadow color to white in dark mode */
+}
 /* Animation for dark mode transition */
 @keyframes darkModeTransition {
     0% {
@@ -155,19 +160,105 @@ body.dark::before {
     animation: darkModeTransition 1s forwards;
 }
 
+/* ANIMATION */
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+
+
+
+/* NAVIGATION SECTION */
+
+.navBar{
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Center items vertically */
+    width: 100%;
+    font-size: 20px;
+    gap: 20px; /* Add space between items */
+    position: fixed; /* Fix the navbar at the top */
+    top: 0; /* Position it at the top */
+    left: 0; /* Align it to the left edge */
+    background-color: transparent; /* Ensure it has a background color */
+    z-index: 1000; /* Ensure it is above other content */
+    padding: 10px 20px; /* Add some padding */
+    animation: fadeInOpacity 3s forwards;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.navBar a{
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+
+.navBar a:hover{
+    color: var(--primary-color);
+}
+
+/* Dark mode switch */
+.darkmodebtn {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: var(--text-color);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3px;
+}
+
+.darkmodebtn::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    transition: transform 0.5s;
+}
+
+body.dark .darkmodebtn {
+    background-color: var(--primary-color);
+}
+
+body.dark .darkmodebtn::before {
+    transform: translateX(30px);
+}
+
+
 
 /* NAME TITLE SECTION */
 
 .nameTitle{
-    margin-top: 100px;
+    margin-top: 200px;
     margin-left: -170px;
-    animation: fadeIn 4s forwards;
+    animation: fadeIn 2.5s forwards;
 }
 
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateY(-50px);
+        transform: translateY(-150px);
     }
     100% {
         opacity: 1;
@@ -222,67 +313,113 @@ body.dark::before {
     }
 }
 
-/* NAVIGATION SECTION */
-.navBar{
-    display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    align-items: center; /* Center items vertically */
-    width: 100%;
-    font-size: 20px;
-    gap: 20px; /* Add space between items */
-}
-
-.navBar a{
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 10px;
-    transition: 0.5s;
-}
-
-
-.navBar a:hover{
-    color: var(--primary-color);
-}
-
-/* Dark mode switch */
-.darkmodebtn {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background-color: var(--text-color);
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.5s;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 3px;
-}
-
-.darkmodebtn::before {
-    content: '';
-    width: 24px;
-    height: 24px;
-    background-color: var(--background-color);
-    border-radius: 50%;
-    transition: transform 0.5s;
-}
-
-body.dark .darkmodebtn {
-    background-color: var(--primary-color);
-}
-
-body.dark .darkmodebtn::before {
-    transform: translateX(30px);
-}
-
 
 /* ABOUT ME SECTION */
 
-.aboutme{
+.aboutme-section{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
     margin-top: 500px;
+}
+
+
+
+
+
+
+
+
+/* PROJECTS SECTION */
+
+
+
+/* CONTACT SECTION */
+
+.contact-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--text-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.277);
+    margin-bottom: 100px;
+}
+
+
+.contact-form{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.contact-input{
+    width: 300px;
+    height: 50px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 20px;
+    padding: 10px;
+    resize: none;
+}
+
+
+.primary-btn{
+    position: relative;
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    overflow: hidden; /* Ensure the ripple effect doesn't overflow the button */
+}
+
+.primary-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.primary-btn:hover::before {
+    animation: ripple 1.5s infinite;
+    opacity: 1;
+}
+
+.primary-btn:hover{
+    background-color: var(--text-color);
+    color: var(--primary-color);
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 40px;
+    height: 40px;
+
 }
