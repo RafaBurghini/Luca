@@ -12,7 +12,6 @@
 html{
     box-sizing: border-box;
     font-size: 62.5%;
-    scroll-behavior: smooth;
     
 }
 
@@ -253,6 +252,7 @@ body.dark .darkmodebtn::before {
     margin-top: 200px;
     margin-left: -170px;
     animation: fadeIn 2.5s forwards;
+    margin-bottom: 400px;
 }
 
 @keyframes fadeIn {
@@ -267,11 +267,17 @@ body.dark .darkmodebtn::before {
 }
 
 .Title{
-    font-size: 100px;
     margin-top: 10px;
     margin-bottom: 10px;
     position: relative;
     font-size: 150px;
+}
+
+.subtitle{
+    font-size: 100px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .dot {
@@ -290,6 +296,8 @@ body.dark .darkmodebtn::before {
     transform: translate(-50%, -50%);
     animation: ripple 2s infinite;
 }
+
+
 
 .dot::before {
     animation-delay: 0s;
@@ -313,22 +321,80 @@ body.dark .darkmodebtn::before {
     }
 }
 
-
 /* ABOUT ME SECTION */
 
-.aboutme-section{
+.section-container{
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 50px;
-    margin-top: 500px;
+    gap: 300px;
+    margin-top: 200px;
+    margin-bottom: 400px;
 }
 
 
 
 
+/* CARROUSEL SECTION */
 
+.pic-container {
+    width: 100vw;
+    height: 100px;
 
+}
+
+@keyframes display {
+    0% {
+    transform: translateX(200px);
+    opacity: 0;
+    }
+    10% {
+    transform: translateX(0);
+    opacity: 1;
+    }
+    20% {
+    transform: translateX(0);
+    opacity: 1;
+    }
+    30% {
+    transform: translateX(-200px);
+    opacity: 0;
+    }
+    100% {
+    transform: translateX(-200px);
+    opacity: 0;
+    }
+}
+
+.pic-container {
+    position: relative;
+    width: 100vw;
+    height: 200px;
+    margin-top: 15vh;
+    margin-bottom: 300px;
+}
+
+.pic-container > img {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 100px);
+    opacity: 0;
+    animation: display 10s infinite;
+}
+
+img:nth-child(2) {
+    animation-delay: 2s;
+}
+img:nth-child(3) {
+    animation-delay: 4s;
+}
+img:nth-child(4) {
+    animation-delay: 6s;
+}
+img:nth-child(5) {
+    animation-delay: 8s;
+}
 
 
 /* PROJECTS SECTION */
@@ -342,7 +408,7 @@ body.dark .darkmodebtn::before {
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-    margin-top: 50px;
+    margin-top: 200px;
     border-width: 2px;
     border-style: solid;
     border-color: var(--text-color);
