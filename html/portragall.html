@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Photography Gallery</title>
+    <title>Portrait Photography Gallery</title>
 </head>
 <body>
     <nav class="navBar">
@@ -22,7 +22,7 @@
 
     <section id="Title">
         <div class="nameTitle">
-            <h1 class="Title">Product Photo Gallery</h1>
+            <h1 class="Title">Portrait Photo Gallery</h1>
         </div>
     </section>
 
@@ -48,18 +48,10 @@
         </div>
     </section>
 
-
     <footer>
         <p>© 2024 <a href="https://www.linkedin.com/in/rafael-burghini/">Powered by Rafael Burghini</a></p>
     </footer>
 
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="img01">
-            <div class="modal-caption" id="caption"></div>
-        </div>
-    
 
     <script>
         document.getElementById('darkModeToggle').addEventListener('click', function() {
@@ -85,24 +77,6 @@
             });
         });
         
-        const modal = document.getElementById("myModal");
-        const modalImg = document.getElementById("img01");
-        const captionText = document.getElementById("caption");
-        const images = document.querySelectorAll(".pic-gallery");
-
-        images.forEach(img => {
-            img.addEventListener("click", function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
-            });
-        });
-
-        const span = document.getElementsByClassName("close")[0];
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
     </script>
 </body>
 </html>

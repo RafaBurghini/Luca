@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video for socials Gallery</title>
+</head>
+<body>
+    <nav class="navBar">
+        <div class="darkmodebtn" id="darkModeToggle"></div>
+        <a href="/html/home.html#aboutme">About Me</a>
+        <a href="/html/home.html#product">Products</a>
+        <a href="/html/home.html#portrait">Portrait</a>
+        <a href="/html/home.html#videoproduct">Video</a>
+        <a href="/html/home.html#contact">Contact</a>
+    </nav>
+
+    <section id="Title">
+        <div class="nameTitle">
+            <h1 class="Title">Video Gallery</h1>
+        </div>
+    </section>
+
+
+    <section id="photoGallery">
+        <div class="photogallery">
+            <img src="/img/1.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/2.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/3.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/4.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/5.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/6.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/8.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/9.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/1.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/2.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/3.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/4.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/5.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/6.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/8.jpg" alt="photoforgallery" class="pic-gallery">
+            <img src="/img/9.jpg" alt="photoforgallery" class="pic-gallery">
+        </div>
+    </section>
+
+
+    <footer>
+        <p>© 2024 <a href="https://www.linkedin.com/in/rafael-burghini/">Powered by Rafael Burghini</a></p>
+    </footer>
+
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll("section");
+        
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+        
+            sections.forEach(section => {
+                section.classList.add("fade-in");
+                observer.observe(section);
+            });
+        });
+        
+    </script>
+</body>
+</html>
